@@ -1,0 +1,9 @@
+.footer {
+    margin-inline: clamp(20px, 4vw, 40px);
+
+    &__copyright {
+        display: flex;
+        justify-content: center;
+    }
+}
+

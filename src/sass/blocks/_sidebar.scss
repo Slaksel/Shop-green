@@ -1,0 +1,132 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: clamp(240px, 21.5vw, 310px);
+    margin-right: 50px;
+
+    @include tablet {
+        margin-right: 25px;
+    }
+
+    &__filter {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 18px;
+        padding-top: 14px;
+        padding-right: 24px;
+        padding-bottom: 19px;
+        background-color: var(--color-bg-gray);
+    }
+
+    &__table {
+        width: 100%;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 0.89;
+        color: var(--color-fonts-dark);
+    }
+
+    &__table-row {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 2.67;
+    }
+
+    &__table-row--active {
+        font-weight: bold;
+        color: var(--color-green);
+    }
+
+    &__link {
+        position: relative;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        height: 25px;
+  
+        @include hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-green);
+            transition-duration: var(--transition-duration);
+        }
+    }
+
+    &__table-count {
+        text-align: right;
+    }
+
+    &__table-categories {
+        margin-bottom: 36px;
+    }
+
+    &__price-range {
+        margin-bottom: 46px;
+    }
+
+    &__title-range {
+        margin-bottom: 15px;
+    }
+
+    &__price-total {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.07;
+        margin-bottom: 16px;
+    }
+
+    &__button-filter {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+        padding: 8px 25px;
+    }
+
+    &__notice {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 18px;
+        box-shadow: 0 2px 5px 0 rgba(70, 163, 88, 0.3);
+        background-color: var(--color-light-green);
+
+        @include tablet {
+            display: none;
+        }
+
+        &-title {
+            text-align: center;
+            font-size: clamp(24px, 4.5vw, 50px);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        &-subtitle {
+            text-align: center;
+            font-size: clamp(16px, 1.6vw, 23px);
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        &-image {
+            width: 100%;
+            aspect-ratio: 1;
+            mix-blend-mode: multiply;
+        }
+    }
+}

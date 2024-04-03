@@ -1,0 +1,26 @@
+:root {
+    --color-light: #FFFFFF;
+    --color-green: #46A358;
+    --color-light-green: rgba(70, 163, 88, 0.2);
+    --color-light-gray: #FBFBFB;
+    --color-bg-gray : #F9F9F9;
+    --color-fonts-dark: #3d3d3d;
+    --color-fonts-gray: #727272;
+    --color-border-button: #e5e5e5; 
+  
+    --border: 1px solid var(--color-green);
+    --border-radius: 6px;
+  
+    --shadow: 0 5px 0 0 var(--color-dark);
+  
+    --font-family-base: 'Cera Pro', sans-serif;
+  
+    --container-width: 1200px;
+
+    --section-padding-y: 70px;
+  
+    --button-height-small: 35px;
+    --button-height-large: 40px;
+  
+    --transition-duration: 0.2s;
+}

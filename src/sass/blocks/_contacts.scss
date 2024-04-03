@@ -1,0 +1,63 @@
+.contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.3fr;
+    align-items: center;
+    background-color: var(--color-light-green);
+    min-height: 88px;
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    @include mobile {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr 1.2fr;
+        row-gap: 20px;
+        grid-template-areas: 
+        "a a b" 
+        "a a c" 
+        "a a d"
+        ;
+    }
+
+    @include mobile-s {
+        &__logo {
+            width: 100%;
+            padding-right: 10px;
+        }
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include tablet-above {
+            &:first-child {
+                margin-left: 23px;
+            }
+        }
+
+        @include mobile {
+            &-logo {
+                grid-area: a;
+            }
+    
+            &-location {
+                grid-area: b;
+            }
+    
+            &-mail{
+                grid-area: c;
+            }
+    
+            &-phone {
+                grid-area: d;
+            }
+        }
+    }
+}

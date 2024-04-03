@@ -1,0 +1,465 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cera Pro";
+  src: url("../fonts/CeraPro-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-light: #FFFFFF;
+  --color-green: #46A358;
+  --color-light-green: rgba(70, 163, 88, 0.5);
+  --color-light-gray: #FBFBFB;
+  --color-bg-gray: #F9F9F9;
+  --color-fonts-dark: #3d3d3d;
+  --color-fonts-gray: #727272;
+  --border: 1px solid var(--color-green);
+  --border-radius: 6px;
+  --shadow: 0 5px 0 0 var(--color-dark);
+  --font-family-base: "Cera Pro", sans-serif;
+  --container-width: 1200px;
+  --section-padding-y: 70px;
+  --button-height-small: 35px;
+  --button-height-large: 40px;
+  --transition-duration: 0.2s;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+.accent-color {
+  color: var(--color-green);
+}
+
+body {
+  font-size: 14px;
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-fonts-gray);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
+
+.header {
+  padding-top: 25px;
+}
+@media (max-width: 1280px) {
+  .header {
+    margin-inline: 40px;
+  }
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 53px;
+  border-bottom: 1px solid var(--color-light-green);
+}
+.header__menu {
+  margin: 0 auto;
+  font-size: 16px;
+}
+.header__menu-list {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+@media (max-width: 1023px) {
+  .header__menu-list {
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+  }
+}
+.header__menu-item--active {
+  color: var(--color-green);
+  font-weight: 700;
+}
+.header__menu-link {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  height: 48px;
+  color: var(--color-fonts-dark);
+}
+@media (hover: hover) {
+  .header__menu-link:hover::after {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header__menu-link:active::after {
+    width: 100%;
+  }
+}
+.header__menu-link::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-green);
+  transition-duration: inherit;
+}
+.header__tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+@media (max-width: 1023px) {
+  .header__tools {
+    margin-left: 30px;
+  }
+}
+.header__icon-search {
+  aspect-ratio: 1;
+  width: 20px;
+}
+.header__icon-basket {
+  height: 24px;
+  width: 29px;
+}
+.header__button {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  width: 100px;
+  height: var(--button-height-small);
+  padding-left: 41px;
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 1023px) {
+  .header__button {
+    font-size: 14px;
+  }
+}
+.header__button::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  height: 20px;
+  width: 20px;
+  background-image: url("/img/icons/login-icon.svg");
+  color: var(--color-light);
+}
+.header__burger-button {
+  display: inline-flex;
+  height: var(--button-height-small);
+  padding-inline: 10px;
+  font-weight: 500;
+  font-style: 14px;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .header__burger-button {
+    display: none;
+  }
+}
+
+.button {
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-green);
+  color: var(--color-light);
+}
+
+.banner {
+  padding-top: 12px;
+}
+.banner__body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: end;
+  background-color: var(--color-bg-gray);
+}
+.banner__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 68px;
+  padding-left: 40px;
+}
+.banner__subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fonts-dark);
+}
+.banner__title {
+  font-size: 70px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--color-fonts-dark);
+  margin-bottom: 5px;
+}
+.banner__descrtiption {
+  display: inline-block;
+  max-width: 557px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-fonts-gray);
+  margin-bottom: 44px;
+}
+.banner__button {
+  height: var(--button-height-large);
+  width: -moz-max-content;
+  width: max-content;
+  padding-inline: 27px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+}
+.banner__image-wrapper {
+  max-height: 450px;
+  position: relative;
+}
+.banner__image-wrapper::before {
+  content: " ";
+  position: absolute;
+  top: 295px;
+  left: 70px;
+  height: 135px;
+  width: 135px;
+  background-image: url("/img/content/flowers-banner.png");
+  background-size: cover;
+}
+.banner__image {
+  position: relative;
+  top: -50px;
+  left: 15px;
+}/*# sourceMappingURL=style.css.map */

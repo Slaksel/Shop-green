@@ -1,0 +1,24 @@
+@import
+  'common/_normalize.scss',
+  'common/_fonts.scss',
+  'common/_variables.scss',
+  'common/_mixins.scss',
+  'common/_media.scss',
+  'common/_utils.scss',
+  'common/_globals.scss';
+
+@import
+  'blocks/_button.scss',
+  'blocks/_header.scss',
+  'blocks/_banner.scss',
+  'blocks/content.scss',
+  'blocks/sidebar.scss',
+  'blocks/products.scss',
+  'blocks/product.scss',
+  'blocks/pagination.scss',
+  'blocks/news.scss',
+  'blocks/blog.scss',
+  'blocks/footer.scss',
+  'blocks/subscribe.scss',
+  'blocks/contacts.scss',
+  'blocks/user-panel.scss';

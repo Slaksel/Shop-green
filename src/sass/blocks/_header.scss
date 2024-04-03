@@ -1,0 +1,189 @@
+.header {
+    padding-top: 25px;
+    margin-inline: clamp(20px, 4vw, 40px);
+    
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 53px;
+        border-bottom: 1px solid var(--color-light-green);
+
+        @include mobile-s {
+            display: none;
+        }
+    }
+  
+    &__menu {
+        z-index: 1;
+        margin: 0 auto;
+        font-size: 16px;
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+
+        @include tablet {
+            column-gap: 30px;
+        }
+    }
+
+    &__menu-item {
+        &--active {
+            color: var(--color-green);
+            font-weight: 700;
+        }
+    }
+
+    &__menu-link {
+        position: relative;
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        height: 48px;
+        color: var(--color-fonts-dark);
+  
+        @include hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    
+        &::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-green);
+            transition-duration: inherit;
+        }
+    }
+
+    &__tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        column-gap: 30px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-left: 30px;
+        }
+    }
+
+    &__icon-search {
+        aspect-ratio: 1;
+        width: 20px;
+    }
+
+    &__icon-basket {
+        height: 24px;
+        width: 29px;
+    }
+  
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        width: 100px;
+        height: var(--button-height-small);
+        padding-left: 41px;
+        font-size: 16px;
+        font-weight: 500;
+
+        @include tablet {
+            font-size: 14px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 17px;
+            height: 20px;
+            width: 20px;
+            background-image: url('/img/icons/login-icon.svg');
+            color: var(--color-light);
+        }
+    }
+
+    &__burger-button {
+        @include mobile-above {
+            display: none;
+        }
+
+        display: inline-flex;
+        height: var(--button-height-small);
+        padding-inline: 10px;
+        font-weight: 500;
+        font-style: 14px;
+        align-items: center;
+    }
+
+    &__search-wrapper {
+        @include mobile-s-above {
+            display: none;
+        }
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__input-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    &__input {
+        position: relative;
+        flex: 1;
+        height: 45px;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--color-light-gray);
+        margin-right: 8px;
+    }
+
+    &__input:not(:active) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &__input-icon {
+        background-color: var(--color-light-gray);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    &__input-icon:active {
+        display: none;
+    }
+
+    &__button-filter {
+        width: 45px;
+        aspect-ratio: 1;
+        padding: 12px;
+        border-radius: 14px;
+        box-shadow: 0 10px 20px 0 rgba(70, 163, 88, 0.3);
+        background: linear-gradient(137deg, #81c78f 0%, #46a358 100%);
+    }
+
+    &__button-filter-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,8 @@
+.content {
+    margin-inline: clamp(20px, 4vw, 40px);
+    
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+}
