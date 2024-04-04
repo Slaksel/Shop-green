@@ -5,6 +5,10 @@ body {
   line-height: 1.28;
   color: var(--color-fonts-gray);
   background-color: var(--color-light);
+
+  @include mobile {
+    padding-bottom: 95px; //место для .mobile-menu 
+  }
 }
 
 a,
