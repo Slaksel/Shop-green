@@ -1,4 +1,5 @@
 .product {
+    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -31,6 +32,53 @@
             width: 100%;
             aspect-ratio: 1;
         }
+    }
+
+    &__icon-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 55%;
+        height: 10%;
+        border-radius: 15px;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        background-color: var(--color-light);
+        transition: opacity var(--transition-duration) ease-in-out;
+
+        @include mobile {
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            top: 10px;
+            left: 85%;
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+    }
+
+    &:hover &__icon-wrapper {
+        opacity: 1;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__icon-basket--active {
+        color: var(--color-green);
+    }
+
+    &__icon-select--active {
+        color: rgb(234, 93, 93);
     }
 
     &__description-wrapper {
