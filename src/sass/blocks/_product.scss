@@ -71,6 +71,10 @@
         align-items: center;
         border: none;
         background-color: transparent;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 
     &__icon-basket--active {
