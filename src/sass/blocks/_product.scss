@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     &__image-wrapper {
         width: 100%;
         height: 300px;

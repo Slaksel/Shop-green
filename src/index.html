@@ -23,7 +23,7 @@
       <nav class="header__menu hidden-mobile">
         <ul class="header__menu-list">
           <li class="header__menu-item header__menu-item--active">
-            <a class="header__menu-link" href="product.html">Home</a>
+            <a class="header__menu-link" href="index.html">Home</a>
           </li>
           <li class="header__menu-item">
             <a class="header__menu-link" href="#shop">Shop</a>
@@ -51,7 +51,7 @@
             alt="basket"
           >
         </a>
-        <button class="header__button button" type="button">Login</button>
+        <button class="header__button header__button-login button" type="button">Login</button>
         <button class="header__burger-button button" type="button" title="Open menu">
           Menu
         </button>
@@ -204,9 +204,9 @@
           </div>
         </div>
         <div class="products__wrapper">
-          <div class="product">
+          <div class="product" data-product="barbertonDaisy">
             <div class="product__image-wrapper">
-              <img src="/img/content/item-card1.png" alt="Barberton Daisy" class="product__image" loading="lazy" height="250" width="250">
+              <img class="product__image" loading="lazy" height="250" width="250" src="/img/content/item-card1.png" alt="Barberton Daisy">
               <div class="product__icon-wrapper">
                 <button class="product__button hidden-mobile">
                   <svg class="product__icon-basket product__icon-basket--active" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="angelWingBegonia">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card2.png" alt="Angel Wing Begonia" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -284,7 +284,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="africanViolet">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card3.png" alt="African Violet" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -324,7 +324,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="beachSpiderLily">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card4.png" alt="Beach Spider Lily" class="product__image" loading="lazy" height="286" width="250">
               <div class="product__icon-wrapper">
@@ -364,7 +364,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="blushingBromeliad">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card5.png" alt="Blushing Bromeliad" class="product__image" loading="lazy" height="250" width="auto">
               <div class="product__icon-wrapper">
@@ -404,7 +404,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="aluminumPlant">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card6.png" alt="Aluminum Plant" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -444,7 +444,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="birdsNestFern">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card7.png" alt="Bird's Nest Fern" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -484,7 +484,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="broadleafLadyPalm">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card8.png" alt="Broadleaf Lady Palm" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -524,7 +524,7 @@
               <p class="product__price accent-color">$119.00</p>
             </div>
           </div>
-          <div class="product">
+          <div class="product" data-product="chineseEvergreen">
             <div class="product__image-wrapper">
               <img src="/img/content/item-card9.png" alt="Chinese Evergreen" class="product__image" loading="lazy" height="250" width="250">
               <div class="product__icon-wrapper">
@@ -1074,7 +1074,57 @@
       </a>
     </div>
   </div>
+
+  <div class="popup hidden-mobile">
+    <div class="popup__content">
+      <button class="popup__close-btn" aria-label="Close">&times;</button>
+      <div class="popup__menu">
+        <a href="/" class="popup__link popup__link-login popup__link--active">Login</a>
+        <a href="/" class="popup__link popup__link-reg">Register</a>
+      </div>
+      <div class="popup__menu-login">
+        <p class="popup__text">Enter your username and password to login.</p>
+        <input type="text" class="popup__mail-input popup__input" placeholder="Enter your email adress">
+        <input type="password" class="popup__password-input popup__input" placeholder="Enter your password">
+        <a href="/" class="popup__pass-recover">Forgot Password?</a>
+        <button class="popup__submit-button popup__button button">Login</button>
+        <div class="popup__socials">
+          <span class="popup__socials-text">Or login with</span>
+          <button class="popup__button popup__socials-button">
+            <img src="/img/icons/google-icon.svg" alt="google-icon" class="popup__icon-button">
+            Login with Google
+          </button>
+          <button class="popup__button popup__socials-button">
+            <img src="/img/icons/facebook-icon.svg" alt="facebook-icon" class="popup__icon-button">
+            Login with Facebook
+          </button>
+        </div>
+      </div>
+      <div class="popup__menu-register visually-hidden">
+        <p class="popup__text">Enter your email and password to register.</p>
+        <input type="text" class="popup__username-input popup__input" placeholder="Username">
+        <input type="text" class="popup__mail-input popup__input" placeholder="Enter your email adress">
+        <input type="password" class="popup__password-input popup__input" placeholder="Password">
+        <input type="password" class="popup__password-input popup__input" placeholder="Confirm Password">
+        <button class="popup__submit-button popup__button button">Register</button>
+        <div class="popup__socials">
+          <span class="popup__socials-text">Or register with</span>
+          <button class="popup__button popup__socials-button">
+            <img src="/img/icons/google-icon.svg" alt="google-icon" class="popup__google-icon">
+            Register with Google
+          </button>
+          <button class="popup__button popup__socials-button">
+            <img src="/img/icons/facebook-icon.svg" alt="facebook-icon" class="popup__facebook-icon">
+            Register with Facebook
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/index.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/render_cards.js"></script>
+  <script src="js/popup.js"></script>
 </body>
 </html>
