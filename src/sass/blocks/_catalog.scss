@@ -1,0 +1,27 @@
+.catalog {
+  margin-inline: clamp(20px, 4vw, 40px);
+
+  &__table >tr > td{
+    height: 25px;
+    border: 1px solid black;
+    padding-inline: 5px;
+  }
+
+  &__button-edit {
+    background-color: var(--color-green);
+    color: var(--color-light);
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 8px;
+    margin-bottom: 6px;
+  }
+
+  &__button-remove {
+    background-color: rgb(242, 77, 77);
+    color: var(--color-light);
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 8px;
+  }
+
+}
