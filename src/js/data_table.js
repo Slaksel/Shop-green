@@ -79,7 +79,7 @@ function addProduct(){
 
 function editRow(event) {
   editType = true;
-  currentRow = event.target.closest('tr'); // to saveRow
+  currentRow = event.target.closest('tr'); 
   let cells = currentRow.querySelectorAll('td');
 
   modal.style.display = 'block';
@@ -88,12 +88,6 @@ function editRow(event) {
   cells.forEach((cell, index) => {
     inputs[index].value = cell.textContent;
   });
-
-
-  // currentRow.forEach((cell, index) => {
-  //   console.log(cell)
-  //   inputs[index].value = cell.textContent;
-  // });
 }
 
 function removeRow() {
@@ -117,7 +111,7 @@ function saveRow() {
   let productLink = document.querySelector('.productLink').value;
 
   if (editType ==  true) {
-    let tds = row.querySelectorAll('td'); // currentRow from editRow
+    let tds = row.querySelectorAll('td'); 
     let inputs = modal.querySelectorAll('input');
     tds.forEach((td, index) => {
       td.textContent = inputs[index].value;
