@@ -11,6 +11,7 @@ const buttonAddProduct = document.querySelector('.catalog__add-button');
 const dataTable = document.querySelector('.catalog__table');
 
 let editType = false;
+let currentRow;
 
 function createDataTable(cards) {
 
@@ -78,11 +79,10 @@ function addProduct(){
 
 function editRow(event) {
   editType = true;
-  let currentRow = event.target.closest('tr');
-  const cells = currentRow.querySelectorAll('td');
+  currentRow = event.target.closest('tr'); // to saveRow
   modal.style.display = 'block';
   const inputs = modal.querySelectorAll('input');
-  cells.forEach((cell, index) => {
+  currentRow.forEach((cell, index) => {
     inputs[index].value = cell.textContent;
   });
 }
@@ -105,13 +105,11 @@ function saveRow(event) {
   let productTags = document.querySelector('.productTags').value;
   let productLink = document.querySelector('.productLink').value;
 
-  if (editType ==  true) {
-    let currentRow = event.target;
-    let tds = currentRow.querySelectorAll('td');
+  if (editType ==  true && currentRow) {
+    let tds = currentRow.querySelectorAll('td'); // currentRow from editRow
     let inputs = modal.querySelectorAll('input');
     tds.forEach((td, index) => {
       td.textContent = inputs[index].value;
-      console.log(inputs[index].value);
     });
   }
 
@@ -146,5 +144,4 @@ function saveRow(event) {
   }
   
   modal.style.display = 'none';  
-  console.log(editType);
 };
