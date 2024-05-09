@@ -80,11 +80,20 @@ function addProduct(){
 function editRow(event) {
   editType = true;
   currentRow = event.target.closest('tr'); // to saveRow
+  let cells = currentRow.querySelectorAll('td');
+
   modal.style.display = 'block';
   const inputs = modal.querySelectorAll('input');
-  currentRow.forEach((cell, index) => {
+  console.log(inputs);
+  cells.forEach((cell, index) => {
     inputs[index].value = cell.textContent;
   });
+
+
+  // currentRow.forEach((cell, index) => {
+  //   console.log(cell)
+  //   inputs[index].value = cell.textContent;
+  // });
 }
 
 function removeRow() {
@@ -92,7 +101,9 @@ function removeRow() {
   removingProduct.remove();
 }
 
-function saveRow(event) {
+function saveRow() {
+  let row = currentRow;
+  console.log(row);
     
   let productId = document.querySelector('.productId').value;
   let productName = document.querySelector('.productName').value;
@@ -105,8 +116,8 @@ function saveRow(event) {
   let productTags = document.querySelector('.productTags').value;
   let productLink = document.querySelector('.productLink').value;
 
-  if (editType ==  true && currentRow) {
-    let tds = currentRow.querySelectorAll('td'); // currentRow from editRow
+  if (editType ==  true) {
+    let tds = row.querySelectorAll('td'); // currentRow from editRow
     let inputs = modal.querySelectorAll('input');
     tds.forEach((td, index) => {
       td.textContent = inputs[index].value;
